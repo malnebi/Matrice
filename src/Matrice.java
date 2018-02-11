@@ -11,9 +11,42 @@ public class Matrice {
 	 * 1.Method returns a new array by eliminating the duplicate values in the
 	 * array.
 	 */
+	public static int brojacJedinstvenih(int[] niz1){
+		int brojac=0;
+		
+		for(int i=0; i<niz1.length; i++){
+			boolean jedinstven=true;
+			for(int j=0; j<i; j++){
+				if(niz1[i]==niz1[j]){
+					jedinstven=false;
+					break;
+				}
+			}
+			if(jedinstven){
+				brojac++;
+			}
+		}
+		
+		return brojac;
+	}
 	public static int[] eliminateDuplicates(int[] list) {
 	}
-
+	int[] niz2=new int[brojacJedinstvenih(list)];
+	int pozicija=0;
+	
+	for(int i=0; i<niz1.length; i++){
+		boolean jedinstven=true;
+		for(int j=0; j<i; j++){
+			if(niz1[i]==niz1[j]){
+				jedinstven=false;
+				break;
+			}
+		}
+		if(jedinstven){
+			niz2[pozicija]=niz1[i];
+			pozicija++;
+		}
+		
 	/**
 	 * @author Vanja Bijelovic
 	 */
@@ -22,7 +55,13 @@ public class Matrice {
 	 */
 	public static boolean isSorted(int[] list) {
 	}
-
+	boolean sortiran=true;
+	for(int i=0;i<niz.length-1;i++)
+	{
+		if(niz[i]>niz[i+1]) sortiran=false;
+		
+	}
+	return sortiran;
 	/**
 	 * @author Vanja Mihajlovic
 	 */
