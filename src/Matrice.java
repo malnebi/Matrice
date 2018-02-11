@@ -1,8 +1,6 @@
+import java.util.Scanner;
+
 public class Matrice {
-
-	public static void main(String[] args) {
-
-	}
 
 	/**
 	 * @author Vanja Bijelovic
@@ -12,6 +10,7 @@ public class Matrice {
 	 * array.
 	 */
 	public static int[] eliminateDuplicates(int[] list) {
+		return list;
 	}
 
 	/**
@@ -21,6 +20,7 @@ public class Matrice {
 	 * 2. Method returns true if the list is already sorted in increasing order.
 	 */
 	public static boolean isSorted(int[] list) {
+		return true;
 	}
 
 	/**
@@ -31,6 +31,7 @@ public class Matrice {
 	 * 3.Method returns a sorted string For example, sort("acb") returns abc.
 	 */
 	public static String sort(String s) {
+		return "string";
 	}
 
 	/**
@@ -53,6 +54,12 @@ public class Matrice {
 	 * matrix
 	 */
 	public static double sumColumn(double[][] m, int columnIndex) {
+
+		int sum = 0;
+		for (int i = 0; i < m.length; i++) {
+			sum += m[i][columnIndex - 1];
+		}
+		return sum;
 	}
 
 	/**
@@ -60,10 +67,70 @@ public class Matrice {
 	 */
 
 	/**
-	 * 7. Method sorts a two-dimensional array The method performs a primary
+	 * 7. Method sorts a two-dimensional array. The method performs a primary
 	 * sort on rows and a secondary sort on columns.
 	 */
 	public static void sort(int m[][]) {
-	}
 
+		/** Sorting rows */
+		for (int i = 0; i < m.length; i++) {
+
+			for (int j = 0; j < m[i].length; j++) {
+				double currentMin = m[i][j];
+				int currentMinIndex = j;
+				// searchong for minimum element in a row
+				for (int k = j + 1; k < m[i].length; k++) {
+					if (currentMin > m[i][k]) {
+						currentMin = m[i][k];
+						currentMinIndex = k;
+					}
+				}
+
+				if (currentMinIndex != j) {
+					m[i][currentMinIndex] = m[i][j];
+					m[i][j] = (int) currentMin;
+				}
+			}
+		}
+		// printing sorted matrix rows
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[i].length; j++) {
+				System.out.print(m[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+
+		/** sorting columns */
+
+		for (int i = 0; i < m.length; i++) {
+
+			for (int j = 0; j < m[i].length; j++) {
+				double currentMin = m[i][j];
+				int currentMinIndex = j;
+				// searchong for minimum element in a row
+				for (int k = j + 1; k < m[i].length; k++) {
+					if (currentMin > m[k][i]) {
+						currentMin = m[k][i];
+						currentMinIndex = k;
+					}
+				}
+
+				if (currentMinIndex != i) {
+					m[currentMinIndex][j] = m[i][j];
+					m[i][j] = (int) currentMin;
+				}
+			}
+
+			// printing sorted matrix rows
+			for (i = 0; i < m.length; i++) {
+				for (int j = 0; j < m[i].length; j++) {
+					System.out.print(m[i][j] + " ");
+				}
+				System.out.println();
+			}
+
+		}
+
+	}
 }
